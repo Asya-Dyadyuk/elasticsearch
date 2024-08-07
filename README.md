@@ -29,27 +29,31 @@ Run the program using a CSV file that contains dates in the format MM/dd/yyyy.
 Expected:
 The program should handle the CSV file without crashing and should display the dates in the date section of the configuration.
 
+
+
 explanation of the code:
 The solution aims to update a configuration file based on data from a CSV file. The goal is to convert the CSV data into a configuration format.
-Structure of the Solution
+Structure of the Solution:
 The solution is divided into four main files, each with a clear responsibility:
 1.	main.py:
-  o	This file contains the main code that invokes the process_files function and provides it with the necessary file paths. It serves as the entry point for executing the program.
+   This file contains the main code that invokes the process_files function and provides it with the necessary file paths. It serves as the entry point for executing the program.
 2.	helpers.py:
-  o	This file handles file processing and configuration generation. It includes the process_files function, which reads the CSV file, determines column types (numeric or date), and prepares the new configuration content for the output file.
+   This file handles file processing and configuration generation. It includes the process_files function, which reads the CSV file, determines column types (numeric or date), and prepares the new configuration content for the output file.
 3.	utils.py:
-  o	This file contains helper functions for data management and analysis.
-  o	The is_numeric and is_integer_value functions check data types within columns.
-  o	The find_numeric_columns function identifies columns containing numeric data and returns the data type (integer or float).
-  o	The is_valid_date and find_date_columns functions are responsible for identifying date columns and returning the first valid date found in each date column.
+   This file contains helper functions for data management and analysis.
+   The is_numeric and is_integer_value functions check data types within columns.
+   The find_numeric_columns function identifies columns containing numeric data and returns the data type (integer or float).
+   The is_valid_date and find_date_columns functions are responsible for identifying date columns and returning the first valid date found in each date column.
 4.	config_generator.py:
-  o	This file is responsible for generating date configuration. It includes the generate_date_config function, which creates the necessary configuration sections for date columns.
+   This file is responsible for generating date configuration. It includes the generate_date_config function, which creates the necessary configuration sections for date columns.
 How It Works
 1.	Reading the CSV File:
-  o	The helpers.py file reads the CSV file into a Pandas Data Frame and retrieves all column names.
+   The helpers.py file reads the CSV file into a Pandas Data Frame and retrieves all column names.
 2.	Preparing Configuration Sections:
-  o	Input Section: Defined statically for the data file.
-  o	Filter Section: Includes column names and data types (numeric and dates). Functions in utils.py provide this information.
-  o	Output Section: New config file based on the data found in the CSV file.
+   Input Section: Defined statically for the data file.
+  	
+   Filter Section: Includes column names and data types (numeric and dates). Functions in utils.py provide this information.
+   
+   Output Section: New config file based on the data found in the CSV file.
 3.	Writing the New Configuration File:
-  o	The generated content is combined and written to the new configuration file.
+   The generated content is combined and written to the new configuration file.
